@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -17,15 +17,15 @@ namespace CSharpEx
         public static string connectionString()
         {
             return "User=SYSDBA;" +
-                      "Password=641767;" +
-                     @"Database=c:\backup\BASE.FDB;" +
+                      "Password=641767;" + File.ReadAllText("dbconnect");
+                   /*  @"Database=c:\backup\BASE.FDB;" +
                       "DataSource=localhost;" +
                       "Port=3050;" +
                       //"Dialect=3;" 
                       "Charset=NONE;" +
                       "Role=;" +
                       "Packet Size=8192;" +
-                      "ServerType=0";
+                      "ServerType=0";*/
         }
     }
     public class user
